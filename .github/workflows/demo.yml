@@ -1,0 +1,23 @@
+name: demo 1
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Show current directory
+        run: pwd
+
+      - name: List files
+        run: ls -la
+
+      - name: Current user
+        run: whoami
+
+      - name: Disk usage
+        run: df -h
