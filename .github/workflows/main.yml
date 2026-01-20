@@ -1,1 +1,13 @@
-HRER
+name: Practice 1 - Linux Basics
+
+on:
+  workflow_dispatch:
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+      - run: pwd
+      - run: ls -la
+      - run: whoami
+      - run: uname -a
