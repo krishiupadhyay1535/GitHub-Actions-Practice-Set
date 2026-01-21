@@ -11,6 +11,9 @@ jobs:
       # Checkout your workflow repo
       - uses: actions/checkout@v4
 
+      - run : echo "Before Fail"
+      - run : exit 1 
+      
       # Checkout server-performance-stats repo
       - uses: actions/checkout@v4
         with:
