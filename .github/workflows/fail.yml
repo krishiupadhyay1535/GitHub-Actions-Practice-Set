@@ -1,0 +1,14 @@
+name : fail 
+
+on : 
+  push :
+    branches:
+      - main 
+
+jobs : 
+  fail : 
+    runs-on: ubuntu-latest
+    steps : 
+    - run : echo "Before Fail"
+    - run : exit 1 
+    - run : echo "This Will Never work"

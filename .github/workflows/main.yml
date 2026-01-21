@@ -1,7 +1,9 @@
 name: Practice 1 - Linux Basics
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   linux:
@@ -10,4 +12,4 @@ jobs:
       - run: pwd
       - run: ls -la
       - run: whoami
-      - run: uname -a
+      - run: uname -a 
