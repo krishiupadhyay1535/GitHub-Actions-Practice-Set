@@ -1,0 +1,13 @@
+name : run script 
+
+on:
+  push:
+    branches:
+      - main
+
+jobs: 
+  script: 
+   runs-on: ubuntu-latest 
+   steps:
+    - uses: actions/checkout@v4
+    - run : bash server-performance-stats

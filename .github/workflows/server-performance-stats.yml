@@ -1,0 +1,23 @@
+name : run script 
+
+on:
+  push:
+    branches:
+      - main
+
+jobs: 
+  script: 
+   runs-on: ubuntu-latest 
+   steps:
+    - uses: actions/checkout@v4
+    - run : bash server-performance-stats
+
+    - name : see the server 
+      run : |
+        bash server-performance-stats
+        echo "How much disk uses"
+        df -h 
+        echo "what are the permission to yml"
+        ls -l
+        ls -la 
+        echo "Every things work good"
