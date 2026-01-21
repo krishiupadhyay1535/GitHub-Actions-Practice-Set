@@ -1,0 +1,14 @@
+name : demo.2
+ 
+on : 
+ workflow_dispatch:
+
+jobs : 
+ multi :
+  runs-on: ubuntu-latest 
+  steps:
+  - run : | 
+      echo "where am i"
+      pwd 
+      echo "disk usegs"
+      df -h 
