@@ -1,41 +1,24 @@
-name : run script 
+name: Run server performance stats
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
-jobs: 
-  script: 
-   runs-on: ubuntu-latest 
-   steps:
+jobs:
+  stats:
+    runs-on: ubuntu-latest
 
+    steps:
+      # Checkout your workflow repo
+      - uses: actions/checkout@v4
 
-          # 2️⃣ Checkout server-performance-stats repo
-      - name: Checkout server-performance-stats repo
-        uses: actions/checkout@v4
+      # Checkout server-performance-stats repo
+      - uses: actions/checkout@v4
         with:
-          repository: krishiupadhyay1535/server-performance-stats
-          ref: main
+          repo: krishiupadhyay1535/server-performance-stats
           path: server-performance-stats
 
-      # 3️⃣ Run script from other repo
-      - name: Run server performance stats
+      # Run the script
+      - name: Execute stats script
         run: |
-          chmod +x server-performance-stats/server-performance-stats
-          bash server-performance-stats/server-performance-stats
-      - uses: actions/checkout@v4
-      - run : bash server-performance-stats
-
-      - name : see the server 
-        run : |
-         bash server-performance-stats
-         echo "How much disk uses"
-         df -h 
-         echo "what are the permission to yml"
-         ls -l
-         ls -la 
-         echo "see top processe for see disk use"
-         top
-         echo "Every things work good (DONE)"
-        
+          chmod +x server-performance-stats/server-performance-stats.sh
+          bash server-performance-stats/server-performance-stats.sh
