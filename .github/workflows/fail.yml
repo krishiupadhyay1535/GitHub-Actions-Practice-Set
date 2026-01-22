@@ -1,4 +1,4 @@
-name: fail 
+name: fail
 
 on:
   workflow_dispatch:
@@ -6,12 +6,15 @@ on:
 #on:
   #push:
     #branches:
-      #- master 
+      #- master
 
-jobs: 
-  fail: 
+jobs:
+  fail:
     runs-on: ubuntu-latest
-    steps: 
-    - run: echo "Before Fail"
-    - run: exit 1 
-    - run: echo "This Will Never work"
+    steps:
+      - run: echo "Before Fail"
+
+      - run: exit 1
+        continue-on-error: true
+
+      - run: echo "This Will Now Work"
